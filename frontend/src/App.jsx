@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import "./index.css";
 import "preline/preline";
 import Homepage from "./pages/Homepage";
+import Services from './pages/Services'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,6 +43,7 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Homepage/>} />
+      <Route path='/services' element={<Services/>} />
     </Routes>
     </>
   );

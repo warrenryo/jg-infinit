@@ -1,169 +1,124 @@
-import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import "../../assets/services.css";
-import Hammer from "hammerjs";
-import MicroSlider from "micro-slider";
+import { useRef } from 'react';
+import '../assets/servicespage.css'
+// import "../assets/landingpage.css";
+import Servicesleft from '../components/landingpage2.jsx/Servicesleft'
+import Servicesright from '../components/landingpage2.jsx/Servicesright'
+import Herosection from '../components/landingpage2.jsx/Herosection'
+import Navbar from '../components/landingpage/Navbar';
+const Servicespage = () => {
 
-const Services = () => {
-  const sliderRef = useRef(null);
-  const carousel1 = useRef(null);
 
-  const initializeSlider = () => {
-    const CaroS = document.querySelector("#Carousel-slider");
-    const CaroSlider = new MicroSlider(sliderRef.current, {
-      indicators: true,
-      indicatorText: "",
-    });
-    const hammer = new Hammer(sliderRef.current);
-    const CaroSTimer = 10000;
-    let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
 
-    sliderRef.current.addEventListener("mouseenter", (e) => {
-      clearInterval(CaroAutoplay);
-    });
+    return (
 
-    sliderRef.current.addEventListener("mouseleave", (e) => {
-      clearInterval(CaroAutoplay);
-      CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-    });
+        <>
 
-    sliderRef.current.addEventListener("click", (e) => {
-      clearInterval(CaroAutoplay);
-    });
+<Navbar />
+            <div className="services-section-list">
+                <Herosection />
 
-    hammer.on("tap", (e) => {
-      clearInterval(CaroAutoplay);
-    });
+                <Servicesleft title="MOTOR CAR INSURANCE"
+                    description="Comprehensive coverage that protects you
+financially if your car gets damaged, stolen, or if you're
+involved in an accident. It helps cover repair costs,
+medical expenses, and liabilities."
+                    color="paragraph_white"
+                    bgcolor="primary_red" 
+                    img="/images/Website/services2/2.jpg"
+                    id="motor"/>
 
-    hammer.on("swipe", (e) => {
-      clearInterval(CaroAutoplay);
-      CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-    });
+                <Servicesright title="INLAND MARINE
+INSURANCE"
+                    description="In land marine insurance provides coverage for goods, 
+                    equipment, and materials in transit over land, offering protection 
+                    against loss or damage outside of traditional property policies."
+                    color="#264D63"
+                    img="/images/Website/services2/3.jpg"
+                    bgcolor="white" 
+                    id="inland"/>
 
-    const slideLinks = document.querySelectorAll(".slider-item");
-    if (slideLinks && slideLinks.length > 0) {
-      slideLinks.forEach((el) => {
-        el.addEventListener("click", (e) => {
-          e.preventDefault();
-          const href = el.dataset.href;
-          const target = el.dataset.target;
-          if (href !== "#") window.open(href, target);
-        });
-      });
-    }
-  };
+                <Servicesleft title="MARINE INSURANCE"
+                    description="Marine cargo insurance is a policy that protects
+                    goods in transit by sea, covering damage, loss, or
+                    theft during shipment."
+                    color="white"
+                    img="/images/Website/services2/4.jpg"
+                    bgcolor="primary_red"
+                    id="marine" />
 
-  const goToServices = (url) => {
-    location.href = url;
-  };
+                <Servicesright title="FIRE INSURANCE"
+                    description="Protects you financially if your property or
+                    belongings are damaged or destroyed by
+                    fire. It covers the cost of repairs or
+                    replacements, giving you peace of mind
+                    against fire-related losses."
+                    color="#264D63"
+                    img="/images/Website/services2/5.jpg"
+                    bgcolor="white" 
+                    id="fire"/>
 
-  useEffect(() => {
-    sliderRef.current.addEventListener("click", () => {
-      goToServices("/services");
-    });
-    setTimeout(() => {
-      initializeSlider();
-    }, 1000);
-  }, []);
+                <Servicesleft title="CONTRACTOR’S
+ALL RISK INSURANCE"
+                    description="Comprehensive policy that covers contractors
+                    and builders against various risks during
+                    construction projects, including damage to the
+                    property, third-party liability, and unexpected
+                    events like fire or theft."
+                    color="white"
+                    img="/images/Website/services2/6.jpg"
+                    bgcolor="primary_red"  
+                    id="contractor"/>
 
-  return (
-    <>
-      <section
-        aria-label="blog"
-        className="section blog shadow-xl mt-10"
-        id="services"
-      >
-        <div className="container mt-0 md:mt-48 hide">
-          <h2 className="h2 section-title text-center text-primary_red">
-            OUR SERVICES
-          </h2>
-          <p className="text-center text-[3vh] text-paragraph_black">
-            Get our insurance for the best possible coverage at the most
-            affordable cost.
-          </p>
-          <div id="Carousel-slider">
-            <div className="Carousel-slider" ref={sliderRef}>
+                <Servicesright title="COMPREHENSIVE
+GENERAL INSURANCE"
+                    description="Provides broad protection for businesses against
+                    claims of bodily injury, property damage, and
+                    personal injury arising from their operations or
+                    premises."
+                    color="#264D63"
+                    img="/images/Website/services2/7.jpg"
+                    bgcolor="white"
+                    id="comprehensive"/>
 
-              <div className="slider-item superHero1" data-href="#">
-                <img
-                onClick={()=>{goToServices('/home')}}
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit36.jpg"
-                  alt=""
-                />
-              </div>
-   
-              <div className="slider-item superHero2" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit38.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero3" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit42.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero4" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit43.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero5" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit45.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero6" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit47.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero7" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit53.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero8" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit56.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="slider-item superHero9" data-href="#">
-              <img
-                  ref={carousel1}
-                  className="w-full h-full rounded-[48px]"
-                  src="images/Website/Services/JGInfinit58.jpg"
-                  alt=""
-                />
-              </div>
+                <Servicesleft title="PERSONAL
+ACCIDENT INSURANCE"
+                    description="Provides financial protection if you're injured or
+                    disabled due to an accident. It typically covers
+                    medical expenses, income loss, and sometimes
+                    pays a lump sum for permanent disability or
+                    death caused by an accident."
+                    color="white"
+                    img="/images/Website/services2/8.jpg"
+                    bgcolor="primary_red" 
+                    id="personal" />
+
+                <Servicesright title="SURETY BOND
+INSURANCE"
+                    description="A three-party agreement where a surety
+                    provides financial assurance to a second party
+                    that a third party will fulfill their obligations,
+                    protecting against financial loss if the third
+                    party fails to perform."
+                    color="#264D63"
+                    img="/images/Website/services2/9.jpg"
+                    bgcolor="white" 
+                    id="surety"/>
+
+                <Servicesleft title="TRAVEL
+INSURANCE"
+                    description="Travel insurance is a safety net for your trips, covering
+                    unexpected mishaps like medical
+                    emergencies, trip cancellations, and lost luggage."
+                    color="white"
+                    img="/images/Website/services2/10.jpg"
+                    bgcolor="primary_red" 
+                    id="travel" />
+
             </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
 
-export default Services;
+        </>
+    )
+}
+
+
+export default Servicespage
