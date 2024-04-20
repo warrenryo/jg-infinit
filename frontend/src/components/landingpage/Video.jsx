@@ -7,7 +7,7 @@ const Video = () => {
   }, []);
   return (
     <>
-      <section className="h-[100vh] mt-10 ">
+      <section className="h-[80vh] md:h-[100vh] mt-0 md:mt-10 ">
         <div className="relative overflow-hidden">
           <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 hide ">
             <div className="max-w-2xl text-center mx-auto ">
@@ -19,7 +19,7 @@ const Video = () => {
             </p> */}
             </div>
 
-            <div className="mt-10 relative max-w-5xl mx-auto">
+            <div className="mt-0 md:mt-10 relative max-w-5xl mx-auto">
               <div className="flex justify-center w-full object-cover h-96 sm:h-[480px]  bg-no-repeat bg-center bg-cover rounded-xl">
                 <video
                   ref={vidRef}
