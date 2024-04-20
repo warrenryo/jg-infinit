@@ -2,21 +2,44 @@ const Footer = () => {
   return (
     <>
       <section id="contact">
-        <footer class="mt-auto bg-gray-900 w-full dark:bg-neutral-950">
+        <footer class="mt-auto bg-primary_red w-full dark:bg-neutral-950">
           <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
               <div class="col-span-full lg:col-span-1">
                 <a
-                  class="flex-none text-xl font-semibold text-white"
+                  class="flex-none text-4xl font-bold text-white"
                   href="#"
                   aria-label="Brand"
                 >
-                  Brand
+                  JG Infinit
                 </a>
+                <p className="footer-brand-text text-white py-5">
+                  Get our insurance for the best possible coverage at the most
+                  affordable cost.
+                </p>
+                <div className="wrapper flex gap-5 py-5">
+                  <img
+                    alt="Clock"
+                    loading="lazy"
+                    src="/images/images/footer-clock2.png"
+                    style={{ height: "34px", width: "34px" }}
+                  />
+                  <ul className="footer-brand-list flex flex-col gap-5">
+                    <li>
+                      <p className="footer-brand-title text-white">Monday - Friday</p>
+                      <p className="text-white">8:00Am - 5:00Pm</p>
+                    </li>
+                    <li>
+                      <p className="footer-brand-title text-white">Saturday - Sunday</p>
+                      <p className="text-white">Closed</p>
+                    </li>
+                  </ul>
+                </div>
+
               </div>
 
               <div class="col-span-1">
-                <h4 class="font-semibold text-gray-100">Product</h4>
+                <h4 class="font-semibold text-2xl text-gray-100">Our links</h4>
 
                 <div class="mt-3 grid space-y-3">
                   <p>
@@ -24,7 +47,7 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      Pricing
+                      Home
                     </a>
                   </p>
                   <p>
@@ -32,7 +55,7 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      Changelog
+                      About Us
                     </a>
                   </p>
                   <p>
@@ -40,22 +63,31 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      Docs
+                      Services
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
+                      href="#"
+                    >
+                      Contact Us
                     </a>
                   </p>
                 </div>
               </div>
 
               <div class="col-span-1">
-                <h4 class="font-semibold text-gray-100">Company</h4>
+                <h4 class="font-semibold text-gray-100 text-2xl">Contact Us</h4>
 
-                <div class="mt-3 grid space-y-3">
-                  <p>
+                <div class="mt-3 grid space-y-3">   
+                  
+                  <p className="w-[160px]">
                     <a
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      About us
+                      ETY Building 10th Floor Quintin Paredes Binondo, Manila
                     </a>
                   </p>
                   <p>
@@ -63,7 +95,7 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      Blog
+                      +63 920-682-9269
                     </a>
                   </p>
                   <p>
@@ -71,18 +103,19 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                      Careers
-                    </a>{" "}
-                    <span class="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
+                    
+                    jginfinit.hr@gmail.com
+                    </a>
+                    {/* <span class="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
                       We're hiring
-                    </span>
+                    </span> */}
                   </p>
                   <p>
                     <a
-                      class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
+                      class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200 w-[160px]"
                       href="#"
                     >
-                      Customers
+                     jginfinitinsurance@gmail.com
                     </a>
                   </p>
                 </div>
@@ -112,9 +145,9 @@ const Footer = () => {
                       Subscribe
                     </a>
                   </div>
-                  <p class="mt-3 text-sm text-gray-400">
+                  {/* <p class="mt-3 text-sm text-gray-400">
                     New UI kits or big discounts. Never spam.
-                  </p>
+                  </p> */}
                 </form>
               </div>
             </div>
@@ -122,7 +155,7 @@ const Footer = () => {
             <div class="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
               <div class="flex justify-between items-center">
                 <p class="text-sm text-gray-400 dark:text-neutral-400">
-                  © 2022 Preline. All rights reserved.
+                  © 2024. JG Infinit Insurance Agency. All rights reserved.
                 </p>
               </div>
 
