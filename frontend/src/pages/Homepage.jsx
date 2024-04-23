@@ -3,7 +3,8 @@ import {
     HeroSection,
     Services,
     Video,
-    Form
+    Form,
+    About
 } from '../components/landingpage/component';
 
 const Homepage = () => {
@@ -16,6 +17,7 @@ const Homepage = () => {
                 <Services />
                 <Video />
                 <Form />
+                <About />
             </article>
         </main>
       </>

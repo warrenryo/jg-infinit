@@ -65,7 +65,7 @@ const Navbar = () => {
               </a>
               <a
                 className="font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="#"
+                href="#about"
               >
                 ABOUT US
               </a>
@@ -173,7 +173,7 @@ const Navbar = () => {
               </div> */}
 
               <div>
-                <a href=""
+                <a href="#quote"
                   type="button"
                   className="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary_red text-white hover:bg-red-800 disabled:opacity-50 disabled:pointer-events-none"
                 >
