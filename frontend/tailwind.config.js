@@ -6,7 +6,12 @@ export default {
     './node_modules/preline/preline.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary_red: '#800000',
+        secondary_orange:'#DB6C27',
+      },
+    },
   },
   plugins: [
     require('preline/plugin')
