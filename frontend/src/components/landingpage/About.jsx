@@ -1,10 +1,10 @@
 const About = () => {
   return (
     <>
-      <section aria-label="about" className="section about h-full" id="about">
+      <section aria-label="about" className="section about h-[100vh] flex items-center justify-center" id="about">
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
-            <div>
+            <div class="hide_2">
               <img
                 class="rounded-xl"
                 src="/images/Website/2.jpg"
@@ -12,7 +12,7 @@ const About = () => {
               />
             </div>
 
-            <div class="mt-5 sm:mt-10 lg:mt-0">
+            <div class="mt-5 sm:mt-10 lg:mt-0 hide_3">
               <div class="space-y-6 sm:space-y-8">
                 <div class="space-y-2 md:space-y-4">
                   <h2 class="font-bold text-3xl lg:text-4xl text-primary_red dark:text-neutral-200">

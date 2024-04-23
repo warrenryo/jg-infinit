@@ -2,8 +2,8 @@ import TermsCondition from "./TermsCondition";
 const Form = () => {
   return (
     <>
-      <section className="h-full" id="quote">
-        <div class="relative bg-gray-50 via-transparent dark:from-blue-950 dark:via-transparent">
+      <section className="h-[100vh] flex items-center justify-center bg-gray-50" id="quote">
+        <div class="relative  via-transparent dark:from-blue-950 dark:via-transparent">
           <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div class="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
               <div className="">

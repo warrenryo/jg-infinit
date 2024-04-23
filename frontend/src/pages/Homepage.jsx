@@ -4,7 +4,8 @@ import {
     Services,
     Video,
     Form,
-    About
+    About,
+    Footer
 } from '../components/landingpage/component';
 
 const Homepage = () => {
@@ -20,6 +21,7 @@ const Homepage = () => {
                 <About />
             </article>
         </main>
+        <Footer/>
       </>
     );
   };

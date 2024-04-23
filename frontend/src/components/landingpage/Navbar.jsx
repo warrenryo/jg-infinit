@@ -57,27 +57,27 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
               <a
-                className="font-medium text-primary_red sm:py-6 dark:text-blue-500"
-                href="#"
+                className="font-medium text-primary_red sm:py-6 dark:text-blue-500 hover:translate-y-[-3px] duration-300"
+                href="/#home"
                 aria-current="page"
               >
                 HOME
               </a>
               <a
-                className="font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="#about"
+                className="hover:translate-y-[-3px] duration-300 font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
+                href="/#about"
               >
                 ABOUT US
               </a>
               <a
-                className="font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="#"
+                className="hover:translate-y-[-3px] duration-300 font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
+                href="/#services"
               >
                 SERVICES
               </a>
               <a
-                className="font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="#"
+                className="hover:translate-y-[-3px] duration-300 font-medium text-primary_red hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
+                href="/#contact"
               >
                 CONTACT US
               </a>
