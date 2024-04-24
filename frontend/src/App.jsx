@@ -7,7 +7,7 @@ import "preline/preline";
 import Homepage from "./pages/Homepage";
 import Services from './pages/Services'
 import Notfound from "./pages/Notfound";
-
+import Phoneauth from "./firebase/Phoneauth";
 function App() {
   const [count, setCount] = useState(0);
   const location = useLocation();
@@ -45,6 +45,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Homepage/>} />
       <Route path='/services' element={<Services/>} />
+      <Route path='/phoneauth' element={<Phoneauth/>} />
       <Route path='/*' element={<Notfound/>} />
     </Routes>
     </>
