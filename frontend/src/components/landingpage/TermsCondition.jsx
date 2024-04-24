@@ -9,7 +9,7 @@ const TermsCondition = () => {
         <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)]">
           <div class="max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
             <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
-              <h3 class="font-bold text-gray-800 dark:text-white">
+              <h3 class="font-bold text-primary_red dark:text-white ">
                 Terms & Conditions
               </h3>
               <button
@@ -38,7 +38,7 @@ const TermsCondition = () => {
             <div class="p-4 overflow-y-auto">
               <div class="space-y-4">
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+                  <h3 class="text-lg font-semibold text-primary_red dark:text-white">
                     Be bold
                   </h3>
                   <p class="mt-1 text-gray-800 dark:text-neutral-400">

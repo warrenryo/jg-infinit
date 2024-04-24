@@ -209,6 +209,7 @@ const Form = () => {
                             <PhoneInput
                               specialLabel=""
                               inputStyle={{
+                                width:"100%",
                                 paddingTop: "10px",
                                 paddingBottom: "10px",
                                 marginTop: "8px ",
