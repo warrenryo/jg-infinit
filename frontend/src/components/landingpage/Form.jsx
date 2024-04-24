@@ -6,7 +6,7 @@ const Form = () => {
   return (
     <>
       <section
-        className="h-[135vh] md:h-[100vh] flex items-center justify-center bg-gray-50"
+        className="h-[155vh] md:h-[100vh] flex items-center justify-center bg-gray-50"
         id="quote"
       >
         <div class="relative  via-transparent dark:from-blue-950 dark:via-transparent">
@@ -84,38 +84,21 @@ const Form = () => {
                       </div>
 
                       <div class="mt-5">
-                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-4">
-                          <div>
-                            <div class="relative">
-                              <label htmlFor="" for="name">
-                                Name
-                              </label>
-                              <input
-                                id="name"
-                                type="text"
-                                class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
-                                placeholder="Name"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div class="relative">
-                              <label htmlFor="" for="mobileNumber">
-                                Mobile Number
-                              </label>
-                              <PhoneInput
-                                specialLabel=""
-                                inputStyle={{ width: "220px", paddingTop:"10px", paddingBottom:"10px", marginTop:"8px "}}
-                                id="phoneInput"
-                                country={"ph"}
-                                countryCodeEditable={false}
-                                enableAreaCodes={["ph"]}
-                                masks={{ ph: "... ... ...." }}
-                              />
-                            </div>
+                        <div>
+                          <div class="relative">
+                            <label htmlFor="" for="name">
+                              Name
+                            </label>
+                            <input
+                              id="name"
+                              type="text"
+                              class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
+                              placeholder="Name"
+                            />
                           </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
                           <div>
                             <label htmlFor="carModel">Car Model</label>
                             <div class="relative mt-2 ">
@@ -218,6 +201,26 @@ const Form = () => {
                           </div>
                         </div>
 
+                        <div>
+                          <div class="relative mt-4">
+                            <label htmlFor="" for="mobileNumber">
+                              Mobile Number
+                            </label>
+                            <PhoneInput
+                              specialLabel=""
+                              inputStyle={{
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                marginTop: "8px ",
+                              }}
+                              id="phoneInput"
+                              country={"ph"}
+                              countryCodeEditable={false}
+                              enableAreaCodes={["ph"]}
+                              masks={{ ph: "... ... ...." }}
+                            />
+                          </div>
+                        </div>
                         <div class="mt-5 flex items-center">
                           <div class="flex">
                             <input
@@ -238,7 +241,7 @@ const Form = () => {
                                 class="cursor-pointer text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
                                 data-hs-overlay="#hs-scroll-inside-body-modal"
                               >
-                                Terms and Conditions
+                                Terms & Conditions
                               </span>
                               <TermsCondition />
                             </label>
