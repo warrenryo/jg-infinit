@@ -1,7 +1,7 @@
 const HeroSection = () => {
   return (
     <>
-      <section id="home">
+      <section id="home" className="mt-[120px]">
         <div className="shadow-xl hide_3">
           <img
             src="/images/Website/1.jpg"
