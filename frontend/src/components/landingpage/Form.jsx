@@ -6,7 +6,7 @@ const Form = () => {
   return (
     <>
       <section
-        className="h-[100vh] flex items-center justify-center bg-gray-50"
+        className="h-[135vh] md:h-[100vh] flex items-center justify-center bg-gray-50"
         id="quote"
       >
         <div class="relative  via-transparent dark:from-blue-950 dark:via-transparent">
