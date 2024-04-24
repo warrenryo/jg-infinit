@@ -1,4 +1,15 @@
+import { useEffect } from "react";
 const Navbar = () => {
+  useEffect(() => {
+    const hash = window.location.hash; // Get the fragment identifier from the URL
+
+    if (hash) {
+      const element = document.querySelector(hash); // Find the element with the corresponding ID
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Scroll to the element smoothly
+      }
+    }
+  }, []);
   return (
     <>
       <header className="top-[0] fixed flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-neutral-800 dark:border-neutral-700">

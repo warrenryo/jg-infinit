@@ -14,7 +14,7 @@ const Servicespage = () => {
         <>
 
 <Navbar />
-            <div className="services-section-list">
+            <div className="services-section-list mt-40">
                 <Herosection />
 
                 <Servicesleft title="MOTOR CAR INSURANCE"
