@@ -26,16 +26,19 @@ const Footer = () => {
                   />
                   <ul className="footer-brand-list flex flex-col gap-5">
                     <li>
-                      <p className="footer-brand-title text-white">Monday - Friday</p>
+                      <p className="footer-brand-title text-white">
+                        Monday - Friday
+                      </p>
                       <p className="text-white">8:00Am - 5:00Pm</p>
                     </li>
                     <li>
-                      <p className="footer-brand-title text-white">Saturday - Sunday</p>
+                      <p className="footer-brand-title text-white">
+                        Saturday - Sunday
+                      </p>
                       <p className="text-white">Closed</p>
                     </li>
                   </ul>
                 </div>
-
               </div>
 
               <div class="col-span-1">
@@ -80,8 +83,7 @@ const Footer = () => {
               <div class="col-span-1">
                 <h4 class="font-semibold text-gray-100 text-2xl">Contact Us</h4>
 
-                <div class="mt-3 grid space-y-3">   
-                  
+                <div class="mt-3 grid space-y-3">
                   <p className="w-[160px]">
                     <a
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
@@ -103,8 +105,7 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200"
                       href="#"
                     >
-                    
-                    jginfinit.hr@gmail.com
+                      jginfinit.hr@gmail.com
                     </a>
                     {/* <span class="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
                       We're hiring
@@ -115,40 +116,27 @@ const Footer = () => {
                       class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200 w-[160px]"
                       href="#"
                     >
-                     jginfinitinsurance@gmail.com
+                      jginfinitinsurance@gmail.com
                     </a>
                   </p>
                 </div>
               </div>
 
               <div class="col-span-2">
-                <h4 class="font-semibold text-gray-100">Stay up to date</h4>
+                <h4 class="font-semibold text-2xl text-gray-100 mb-4">
+                  Our Location
+                </h4>
 
-                <form>
-                  <div class="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-lg p-2 dark:bg-neutral-900">
-                    <div class="w-full">
-                      <label for="hero-input" class="sr-only">
-                        Search
-                      </label>
-                      <input
-                        type="text"
-                        id="hero-input"
-                        name="hero-input"
-                        class="py-3 px-4 block w-full border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                    <a
-                      class="w-full sm:w-auto whitespace-nowrap p-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                      href="#"
-                    >
-                      Subscribe
-                    </a>
-                  </div>
-                  {/* <p class="mt-3 text-sm text-gray-400">
-                    New UI kits or big discounts. Never spam.
-                  </p> */}
-                </form>
+                <iframe
+                  className="rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.0045085439247!2d120.97323077484394!3d14.598818877120792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cb003a64c801%3A0xbf55734b7978b627!2sJG%20Infinit%20Insurance%20Agency!5e0!3m2!1sen!2sph!4v1713924027162!5m2!1sen!2sph"
+                  width={345}
+                  height={300}
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
 

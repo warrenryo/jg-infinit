@@ -1,4 +1,7 @@
 import TermsCondition from "./TermsCondition";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/material.css";
+
 const Form = () => {
   return (
     <>
@@ -81,7 +84,7 @@ const Form = () => {
                       </div>
 
                       <div class="mt-5">
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mb-4">
                           <div>
                             <div class="relative">
                               <label htmlFor="" for="name">
@@ -100,14 +103,19 @@ const Form = () => {
                               <label htmlFor="" for="mobileNumber">
                                 Mobile Number
                               </label>
-                              <input
-                                id="mobileNumber"
-                                type="number"
-                                class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
-                                placeholder="Mobile Number"
+                              <PhoneInput
+                                specialLabel=""
+                                inputStyle={{ width: "220px", paddingTop:"10px", paddingBottom:"10px", marginTop:"8px "}}
+                                id="phoneInput"
+                                country={"ph"}
+                                countryCodeEditable={false}
+                                enableAreaCodes={["ph"]}
+                                masks={{ ph: "... ... ...." }}
                               />
                             </div>
                           </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
                           <div>
                             <label htmlFor="carModel">Car Model</label>
                             <div class="relative mt-2 ">
@@ -213,7 +221,7 @@ const Form = () => {
                         <div class="mt-5 flex items-center">
                           <div class="flex">
                             <input
-                              required                           
+                              required
                               id="remember-me"
                               name=""
                               type="checkbox"

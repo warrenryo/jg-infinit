@@ -35,3 +35,10 @@ transition: all 1s;
   transform: translateX(0);
 }
 
+.react-tel-input .form-control{
+  width: 120px;
+}
+
+#phoneInput{
+  width: 120px;
+}

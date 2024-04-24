@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import "./index.css";
 import "preline/preline";
 import Homepage from "./pages/Homepage";
+import OtpPage from "./pages/OtpPage";
 import Services from './pages/Services'
 import Notfound from "./pages/Notfound";
 import Phoneauth from "./firebase/Phoneauth";
@@ -46,6 +47,7 @@ function App() {
       <Route path='/' element={<Homepage/>} />
       <Route path='/services' element={<Services/>} />
       <Route path='/phoneauth' element={<Phoneauth/>} />
+      <Route path='/otp' element={<OtpPage/>} />
       <Route path='/*' element={<Notfound/>} />
     </Routes>
     </>
