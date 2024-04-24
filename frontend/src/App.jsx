@@ -6,6 +6,7 @@ import "./index.css";
 import "preline/preline";
 import Homepage from "./pages/Homepage";
 import Services from './pages/Services'
+import Notfound from "./pages/Notfound";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -44,6 +45,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Homepage/>} />
       <Route path='/services' element={<Services/>} />
+      <Route path='/*' element={<Notfound/>} />
     </Routes>
     </>
   );
