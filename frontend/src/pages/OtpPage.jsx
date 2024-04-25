@@ -1,8 +1,45 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
+import { TypeAnimation } from 'react-type-animation';
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import axios from "axios";
 const OtpPage = () => {
+  const hostServer = import.meta.env.VITE_HOSTSERVER
+  const [verification, setVerification] = useState(null)
+  const [otp1, setOtp1] = useState("");
+  const [otp2, setOtp2] = useState("");
+  const [otp3, setOtp3] = useState("");
+  const [otp4, setOtp4] = useState("");
+  const [otp5, setOtp5] = useState("");
+  const [otp6, setOtp6] = useState("");
+
+  const getVerification = async () => {
+    try {
+      const res = await axios.get(`${hostServer}/otpVerification`)
+      setVerification(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const verifyOtp = async (e) => {
+    try {
+      e.preventDefault()
+      const wholeOtp = otp1 + otp2 + otp1 + otp2 + otp1 + otp2 
+      // const res = await verification.confirm(otp1)
+      console.log(wholeOtp);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  useEffect(()=>{
+
+    getVerification()
+  }, [])
   return (
     <>
-      <div class="p-10">
+      <div class={`p-10`}>
         <>
           {/* Hero */}
           <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,42 +48,69 @@ const OtpPage = () => {
               <div>
                 <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
                   <span className="text-primary_red">SMS </span>
-                  VERIFICATION
+                  
                 </h1>
+                <TypeAnimation
+                className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white"
+      sequence={[
+        'VERIFICATION',
+        1000,
+        'VERIFICATION',
+        1000,
+      ]}
+      wrapper="h1"
+      speed={50}
+      style={{ fontSize: '3.5em', display: 'inline-block' }}
+      repeat={Infinity}
+    />
                 <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
                   Hand-picked professionals and expertly crafted components,
                   designed for any kind of entrepreneur.
                 </p>
-                <form action="">
+                <form onSubmit={(e)=>{verifyOtp(e)}}>
                   <div className="flex space-x-3 mt-10 items-center justify-center" data-hs-pin-input="">
                     <input
-                      type="text"
+                    value={otp1}
+                    onChange={(e)=>{setOtp1(e.currentTarget.value)}}
+                    required
+                      type="number"
+                      min="0"
                       className="block border w-[35px] h-[35px] md:w-[50px] md:h-[50px] text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                       autofocus=""
                     />
                     <input
-                      type="text"
+                    onChange={(e)=>{setOtp2(e.currentTarget.value)}}
+                    required
+                      type="number"
                       className="block border w-[35px] h-[35px] md:w-[50px] md:h-[50px] text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                     />
                     <input
-                      type="text"
+                    onChange={(e)=>{setOtp3(e.currentTarget.value)}}
+                    required
+                      type="number"
                       className="block border w-[35px] h-[35px]  md:w-[50px] md:h-[50px]   text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                     />
                     <input
-                      type="text"
+                    onChange={(e)=>{setOtp4(e.currentTarget.value)}}
+                    required
+                      type="number"
                       className="block border w-[35px] h-[35px] md:w-[50px] md:h-[50px] text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                     />
                     <input
-                      type="text"
+                    onChange={(e)=>{setOtp5(e.currentTarget.value)}}
+                    required
+                      type="number"
                       className="block border w-[35px] h-[35px] md:w-[50px] md:h-[50px] text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                     />
                     <input
-                      type="text"
+                    onChange={(e)=>{setOtp6(e.currentTarget.value)}}
+                    required
+                      type="number"
                       className="block border w-[35px] h-[35px] md:w-[50px] md:h-[50px]     text-center border-gray-400 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       data-hs-pin-input-item=""
                     />

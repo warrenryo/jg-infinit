@@ -1,8 +1,49 @@
+import { useEffect, useState } from "react";
 import TermsCondition from "./TermsCondition";
 import PhoneInput from "react-phone-input-2";
+import { auth } from "../../firebase/setup";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import "react-phone-input-2/lib/material.css";
-
+import axios from 'axios'
 const Form = () => {
+  const hostServer = import.meta.env.VITE_HOSTSERVER
+  const [user, setUser] = useState(null);
+  const [name, setName] = useState("")
+  const [model, setModel] = useState(null)
+  const [variant, setVariant] = useState("")
+  const [year, setYear] = useState("")
+  const [transmission, setTransmission] = useState("")
+  const [phone, setPhone] = useState("")
+
+  const getQuote = async (e) => {
+
+    try {
+      const params = {
+        name,
+        model,
+        variant,
+        year,
+        transmission,
+        phone
+      };
+      e.preventDefault()
+      // location.href = "/verify"
+      // const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
+      // const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha);
+      // setUser(confirmation);
+      const data = axios.get(`${hostServer}/otpData`, {params})
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
+  useEffect(() => {
+
+    console.log(model)
+  }, [model])
+
   return (
     <>
       <section
@@ -74,7 +115,7 @@ const Form = () => {
               </div>
 
               <div>
-                <form>
+                <form onSubmit={(e) => { getQuote(e) }}>
                   <div class="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto">
                     <div class="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-lg dark:bg-neutral-900">
                       <div class="text-center">
@@ -90,10 +131,13 @@ const Form = () => {
                               Name
                             </label>
                             <input
+                            required
+                              value={name}
+                              onChange={(e) => { setName(e.currentTarget.value) }}
                               id="name"
                               type="text"
                               class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
-                              placeholder="Name"
+                              placeholder="Enter your Name"
                             />
                           </div>
                         </div>
@@ -103,24 +147,17 @@ const Form = () => {
                             <label htmlFor="carModel">Car Model</label>
                             <div class="relative mt-2 ">
                               <select
-                                id="carModel"
-                                data-hs-select='{
-  "placeholder": "Select Car Model",
-  "toggleTag": "<button type=\"button\"></button>",
-  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400",
-  "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
-  "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
-  "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"flex-shrink-0 size-3.5 text-blue-600 dark:text-blue-500\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
-  "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"flex-shrink-0 size-3.5 text-gray-500 dark:text-neutral-500\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-}'
-                                class="hidden"
-                              >
-                                <option value="">Choose</option>
-                                <option>Name</option>
-                                <option>Email address</option>
+                              required
+                                value={model}
+                                onChange={(e) => { setModel(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                               rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option selected disabled>Select Model</option>
+                                <option value="Vrand">Brand</option>
+                                <option value="email">Email address</option>
                                 <option>Description</option>
                                 <option>User ID</option>
                               </select>
+
                             </div>
                           </div>
                           <div>
@@ -129,21 +166,13 @@ const Form = () => {
                             </label>
                             <div class="relative mt-2 ">
                               <select
-                                id="carModelVariant"
-                                data-hs-select='{
-  "placeholder": "Select Variant",
-  "toggleTag": "<button type=\"button\"></button>",
-  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400",
-  "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
-  "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
-  "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"flex-shrink-0 size-3.5 text-blue-600 dark:text-blue-500\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
-  "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"flex-shrink-0 size-3.5 text-gray-500 dark:text-neutral-500\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-}'
-                                class="hidden"
-                              >
-                                <option value="">Choose</option>
-                                <option>Name</option>
-                                <option>Email address</option>
+                              required
+                                value={variant}
+                                onChange={(e) => { setVariant(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                               rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option selected disabled>Select Variant</option>
+                                <option value="Vrand">Brand</option>
+                                <option value="email">Email address</option>
                                 <option>Description</option>
                                 <option>User ID</option>
                               </select>
@@ -155,22 +184,13 @@ const Form = () => {
                               Car Model Year
                             </label>
                             <div class="relative mt-2 ">
-                              <select
-                                id="carModelVariant"
-                                data-hs-select='{
-  "placeholder": "Select Year",
-  "toggleTag": "<button type=\"button\"></button>",
-  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400",
-  "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
-  "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
-  "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"flex-shrink-0 size-3.5 text-blue-600 dark:text-blue-500\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
-  "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"flex-shrink-0 size-3.5 text-gray-500 dark:text-neutral-500\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-}'
-                                class="hidden"
-                              >
-                                <option value="">Choose</option>
-                                <option>Name</option>
-                                <option>Email address</option>
+                              <select value={year}
+                              required
+                                onChange={(e) => { setYear(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                               rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option selected disabled>Select Year</option>
+                                <option value="Vrand">Brand</option>
+                                <option value="email">Email address</option>
                                 <option>Description</option>
                                 <option>User ID</option>
                               </select>
@@ -180,22 +200,15 @@ const Form = () => {
                           <div>
                             <label htmlFor="carModelVariant">AT or MT</label>
                             <div class="relative mt-2 ">
-                              <select
-                                id="carModelVariant"
-                                data-hs-select='{
-  "placeholder": "Select...",
-  "toggleTag": "<button type=\"button\"></button>",
-  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400",
-  "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
-  "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
-  "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"flex-shrink-0 size-3.5 text-blue-600 dark:text-blue-500\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
-  "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"flex-shrink-0 size-3.5 text-gray-500 dark:text-neutral-500\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-}'
-                                class="hidden"
-                              >
-                                <option value="">Choose</option>
+                              <select id="hs-select-label"
+                              required
+                                value={transmission}
+                                onChange={(e) => { setTransmission(e.currentTarget.value) }}
+                                class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option selected disabled>Select Transmission</option>
                                 <option>AT</option>
                                 <option>MT</option>
+
                               </select>
                             </div>
                           </div>
@@ -207,9 +220,14 @@ const Form = () => {
                               Mobile Number
                             </label>
                             <PhoneInput
+                            required
+                              value={phone}
+                              onChange={(phone) => {
+                                setPhone("+" + phone);
+                              }}
                               specialLabel=""
                               inputStyle={{
-                                width:"100%",
+                                width: "100%",
                                 paddingTop: "10px",
                                 paddingBottom: "10px",
                                 marginTop: "8px ",
@@ -225,9 +243,9 @@ const Form = () => {
                         <div class="mt-5 flex items-center">
                           <div class="flex">
                             <input
-                              required
                               id="remember-me"
                               name=""
+                              required
                               type="checkbox"
                               class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                             />
@@ -247,6 +265,7 @@ const Form = () => {
                               <TermsCondition />
                             </label>
                           </div>
+                          <div className="captcha"></div>
                         </div>
 
                         <div class="mt-5">

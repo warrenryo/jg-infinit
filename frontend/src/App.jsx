@@ -47,7 +47,7 @@ function App() {
       <Route path='/' element={<Homepage/>} />
       <Route path='/services' element={<Services/>} />
       <Route path='/phoneauth' element={<Phoneauth/>} />
-      <Route path='/otp' element={<OtpPage/>} />
+      <Route path='/verify' element={<OtpPage/>} />
       <Route path='/*' element={<Notfound/>} />
     </Routes>
     </>

@@ -10,24 +10,5 @@ test.get('/test', async (req, res) => {
     res.json(testData);
 });
 
-test.get('/test1', async (req, res) => {
-    const testData = await getTest();
-    res.json(testData);
-});
-
-test.get('/test2', async (req, res) => {
-    const testData = await db('Select * from test');
-    res.json(testData);
-});
-
-test.get('/test3', async (req, res) => {
-    const testData = await db('Select * from test');
-    res.json(testData);
-});
-
-test.get('/test4', async (req, res) => {
-    const testData = await db('Select * from test');
-    res.json(testData);
-});
 
 module.exports = test;

@@ -102,10 +102,11 @@ const TermsCondition = () => {
                 Close
               </button>
               <button
-                type="submit"
-                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary_red text-white hover:bg-red-800 disabled:opacity-50 disabled:pointer-events-none"
+                type="button"
+                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-primary_red text-white shadow-sm hover:bg-primary_red-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
+                data-hs-overlay="#hs-scroll-inside-body-modal"
               >
-                Submit
+                Done
               </button>
             </div>
           </div>
