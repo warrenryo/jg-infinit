@@ -14,6 +14,7 @@ const Phoneauth = () => {
       const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
       const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha);
       setUser(confirmation);
+      console.log(confirmation)
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +23,8 @@ const Phoneauth = () => {
   const verifyOtp = async () => {
     try {
       const data = await user.confirm(otp);
-      console.log(data);
+      console.log(user);
+    
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +54,10 @@ const Phoneauth = () => {
           Send Otp
         </button>
         <div className="recaptcha" id="recaptcha"></div>
-        <div className="enterOtp grid place-content-center">
+        <div className="enterOtp grid place-conte
+        
+        
+        t-center">
           <input
             type="text"
             onChange={(e) => {

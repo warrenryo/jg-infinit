@@ -2,7 +2,7 @@ const express = require('express');
 const otpVerification = express.Router();
 const ls = require('local-storage')
 
-otpVerification.get('/otpData', async (req, res) => {
+otpVerification.post('/otpData', async (req, res) => {
     const {
         name,
         model,
@@ -10,10 +10,10 @@ otpVerification.get('/otpData', async (req, res) => {
         year,
         transmission,
         phone,
-        verification } = req.query
-
-    req.session.name = req.query
-    ls.set("verification", verification);
+        ConfirmationResultImpl } = req.body
+        console.log(ConfirmationResultImpl)
+    req.session.name = req.body
+    ls.set("verification", ConfirmationResultImpl);
 });
 
 

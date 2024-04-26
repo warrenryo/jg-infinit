@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import TermsCondition from "./TermsCondition";
 import PhoneInput from "react-phone-input-2";
 import { auth } from "../../firebase/setup";
+import OtpPage from "../../pages/OtpPage";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import "react-phone-input-2/lib/material.css";
 import axios from 'axios'
 const Form = () => {
   const hostServer = import.meta.env.VITE_HOSTSERVER
+  const [hidden, setHidden] = useState(false);
   const [user, setUser] = useState(null);
   const [name, setName] = useState("")
   const [model, setModel] = useState(null)
@@ -18,20 +20,25 @@ const Form = () => {
   const getQuote = async (e) => {
 
     try {
-      const params = {
+
+      e.preventDefault()
+
+      // const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
+      // const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha);
+      setUser("confirmation");
+      const verification = "confirmation"
+      console.log(verification)
+      
+      const data = axios.post(`${hostServer}/otpData`, {
         name,
         model,
         variant,
         year,
         transmission,
-        phone
-      };
-      e.preventDefault()
-      // location.href = "/verify"
-      // const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {});
-      // const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha);
-      // setUser(confirmation);
-      const data = axios.get(`${hostServer}/otpData`, {params})
+        phone,
+        ConfirmationResultImpl:verification
+      })
+      
     } catch (error) {
       console.log(error)
     }
@@ -46,6 +53,10 @@ const Form = () => {
 
   return (
     <>
+    {hidden && <>
+      <OtpPage user={user}/>
+    </>}
+
       <section
         className="h-[155vh] md:h-[100vh] flex items-center justify-center bg-gray-50"
         id="quote"
@@ -265,9 +276,9 @@ const Form = () => {
                               <TermsCondition />
                             </label>
                           </div>
-                          <div className="captcha"></div>
+                          
                         </div>
-
+                        <div className="recaptcha" id="recaptcha"></div>
                         <div class="mt-5">
                           <button
                             type="submit"
