@@ -6,7 +6,7 @@ import {
     Form,
     About,
     Footer
-} from '../components/landingpage/component';
+} from '../../components/landingpage/component';
 
 const Homepage = () => {
     return (

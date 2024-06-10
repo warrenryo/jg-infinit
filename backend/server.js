@@ -11,6 +11,7 @@ app.use(express.json());
 
 const db = require('./connection/connection')
 const testRoute = require('./routes/test');
+const adminRoute = require('./routes/adminRoute')
 const otpVerification = require("./routes/otp_verification")
 
 
@@ -37,6 +38,7 @@ app.use(session({
 app.set('trust proxy', 1) // trust first proxy
 app.use(cors(corsOptions))
 app.use('/home', testRoute)
+app.use(adminRoute)
 app.use(otpVerification)
 app.listen(port,  () => {
   console.log(`Server started at port ${port}`)

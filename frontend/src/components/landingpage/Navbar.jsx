@@ -1,15 +1,7 @@
 import { useEffect } from "react";
-const Navbar = () => {
-  useEffect(() => {
-    const hash = window.location.hash; // Get the fragment identifier from the URL
+import React from "react";
+const Navbar = React.memo(() => {
 
-    if (hash) {
-      const element = document.querySelector(hash); // Find the element with the corresponding ID
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' }); // Scroll to the element smoothly
-      }
-    }
-  }, []);
   return (
     <>
       <header className="top-[0] fixed flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-neutral-800 dark:border-neutral-700">
@@ -42,11 +34,11 @@ const Navbar = () => {
                   className="hs-collapse-open:hidden size-4"
                   width="16"
                   height="16"
-                  fill="currentColor"
+
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+
                     d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
                   />
                 </svg>
@@ -54,7 +46,6 @@ const Navbar = () => {
                   className="hs-collapse-open:block flex-shrink-0 hidden size-4"
                   width="16"
                   height="16"
-                  fill="currentColor"
                   viewBox="0 0 16 16"
                 >
                   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
@@ -104,7 +95,6 @@ const Navbar = () => {
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -190,7 +180,7 @@ const Navbar = () => {
               >
 
 <div>
-                <a href="#quote"
+                <a href="./#quote"
                   type="button"
                   className="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary_red text-white hover:bg-red-800 disabled:opacity-50 disabled:pointer-events-none"
                 >
@@ -204,6 +194,6 @@ const Navbar = () => {
       </header>
     </>
   );
-};
+});
 
 export default Navbar;

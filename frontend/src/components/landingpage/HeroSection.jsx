@@ -1,4 +1,5 @@
 const HeroSection = () => {
+  console.log("HeroSection")
   return (
     <>
       <section id="home" className="mt-[120px]">

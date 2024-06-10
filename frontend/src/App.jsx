@@ -4,13 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom'
 import "./index.css";
 import "preline/preline";
-import Homepage from "./pages/Homepage";
-import OtpPage from "./pages/OtpPage";
-import Services from './pages/Services'
+import {Homepage, Services, OtpPage} from './pages/Client/components'
+import {Quotepage, AdminDashboard, Carlist, Login} from './pages/Admin/components'
 import Notfound from "./pages/Notfound";
 import Phoneauth from "./firebase/Phoneauth";
+import { Adminlayout } from "./layout/Admin/Adminlayout";
 function App() {
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false)
   const location = useLocation();
 
   useEffect(() => {
@@ -48,7 +49,14 @@ function App() {
       <Route path='/services' element={<Services/>} />
       <Route path='/phoneauth' element={<Phoneauth/>} />
       <Route path='/verify' element={<OtpPage/>} />
-      <Route path='/*' element={<Notfound/>} />
+      <Route path='/*' element={<Notfound/>} />  
+
+      <Route element={<Adminlayout/>}>
+      <Route path='/admin' element={<AdminDashboard/>} />
+      <Route path='/admin/quote/:carParams' element={<Quotepage/>} />
+      <Route path="/admin/car/:brand" element={<Carlist loading={loading} setLoading={setLoading}/>}/>
+        </Route> 
+        <Route path="/admin/login" element={<Login loading={loading} setLoading={setLoading}/>}/>
     </Routes>
     </>
   );

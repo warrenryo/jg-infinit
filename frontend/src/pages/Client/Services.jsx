@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import '../assets/servicespage.css'
+import '../../assets/servicespage.css'
 // import "../assets/landingpage.css";
-import Servicesleft from '../components/landingpage2.jsx/Servicesleft'
-import Servicesright from '../components/landingpage2.jsx/Servicesright'
-import Herosection from '../components/landingpage2.jsx/Herosection'
-import Navbar from '../components/landingpage/Navbar';
+import Servicesleft from '../../components/landingpage2.jsx/Servicesleft'
+import Servicesright from '../../components/landingpage2.jsx/Servicesright'
+import Herosection from '../../components/landingpage2.jsx/Herosection'
+import Navbar from '../../components/landingpage/Navbar';
 const Servicespage = () => {
 
 

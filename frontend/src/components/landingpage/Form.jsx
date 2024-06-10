@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import TermsCondition from "./TermsCondition";
 import PhoneInput from "react-phone-input-2";
 import { auth } from "../../firebase/setup";
-import OtpPage from "../../pages/OtpPage";
+import OtpPage from "../../pages/Client/OtpPage";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import "react-phone-input-2/lib/material.css";
 import axios from 'axios'
@@ -61,19 +61,19 @@ const Form = () => {
         className="h-[155vh] md:h-[100vh] flex items-center justify-center bg-gray-50"
         id="quote"
       >
-        <div class="relative  via-transparent dark:from-blue-950 dark:via-transparent">
-          <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <div class="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="relative  via-transparent dark:from-blue-950 dark:via-transparent">
+          <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div className="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
               <div className="">
-                {/* <p class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
+                {/* <p className="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
           Preline: A vision for 2024
         </p> */}
 
-                <div class="mt-4 md:mb-12 max-w-2xl">
-                  <h1 class="mb-4 font-bold text-primary_red text-4xl lg:text-5xl dark:text-neutral-200">
+                <div className="mt-4 md:mb-12 max-w-2xl">
+                  <h1 className="mb-4 font-bold text-primary_red text-4xl lg:text-5xl dark:text-neutral-200">
                     MOTOR CAR INSURANCE
                   </h1>
-                  <p class="text-gray-600 dark:text-neutral-400">
+                  <p className="text-gray-600 dark:text-neutral-400">
                     Comprehensive coverage that protects you financially if your
                     car gets damaged, stolen, or if you're involved in an
                     accident. It helps cover repair costs, medical expenses, and
@@ -81,9 +81,9 @@ const Form = () => {
                   </p>
                 </div>
 
-                <blockquote class="hidden md:block relative max-w-sm">
+                <blockquote className="hidden md:block relative max-w-sm">
                   <svg
-                    class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200 dark:text-neutral-800"
+                    className="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200 dark:text-neutral-800"
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
@@ -97,26 +97,26 @@ const Form = () => {
                     />
                   </svg>
 
-                  <div class="relative z-10">
-                    <p class="text-xl italic text-gray-800 dark:text-white">
+                  <div className="relative z-10">
+                    <p className="text-xl italic text-gray-800 dark:text-white">
                       "With us, you are covered and safe."
                     </p>
                   </div>
 
-                  <footer class="mt-3">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0">
+                  <footer className="mt-3">
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0">
                         <img
-                          class="size-8 rounded-full"
+                          className="size-8 rounded-full"
                           src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                           alt="Image Description"
                         />
                       </div>
-                      <div class="grow ms-4">
-                        <div class="font-semibold text-gray-800 dark:text-neutral-200">
+                      <div className="grow ms-4">
+                        <div className="font-semibold text-gray-800 dark:text-neutral-200">
                           Gezer Cai
                         </div>
-                        <div class="text-xs text-gray-500 dark:text-neutral-500">
+                        <div className="text-xs text-gray-500 dark:text-neutral-500">
                           Chief Executive Officer
                         </div>
                       </div>
@@ -127,17 +127,17 @@ const Form = () => {
 
               <div>
                 <form onSubmit={(e) => { getQuote(e) }}>
-                  <div class="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto">
-                    <div class="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-lg dark:bg-neutral-900">
-                      <div class="text-center">
-                        <h1 class="block text-2xl font-bold text-primary_red dark:text-white">
+                  <div className="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto">
+                    <div className="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-lg dark:bg-neutral-900">
+                      <div className="text-center">
+                        <h1 className="block text-2xl font-bold text-primary_red dark:text-white">
                           GET A QUOTE
                         </h1>
                       </div>
 
-                      <div class="mt-5">
+                      <div className="mt-5">
                         <div>
-                          <div class="relative">
+                          <div className="relative">
                             <label htmlFor="" for="name">
                               Name
                             </label>
@@ -147,20 +147,20 @@ const Form = () => {
                               onChange={(e) => { setName(e.currentTarget.value) }}
                               id="name"
                               type="text"
-                              class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
+                              className="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 "
                               placeholder="Enter your Name"
                             />
                           </div>
                         </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
                           <div>
                             <label htmlFor="carModel">Car Model</label>
-                            <div class="relative mt-2 ">
+                            <div className="relative mt-2 ">
                               <select
                               required
                                 value={model}
-                                onChange={(e) => { setModel(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                                onChange={(e) => { setModel(e.currentTarget.value) }} className="py-3 px-4 pe-9 block w-full border-gray-200
                                rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                                 <option selected disabled>Select Model</option>
                                 <option value="Vrand">Brand</option>
@@ -175,11 +175,11 @@ const Form = () => {
                             <label htmlFor="carModelVariant">
                               Car Model Variant
                             </label>
-                            <div class="relative mt-2 ">
+                            <div className="relative mt-2 ">
                               <select
                               required
                                 value={variant}
-                                onChange={(e) => { setVariant(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                                onChange={(e) => { setVariant(e.currentTarget.value) }} className="py-3 px-4 pe-9 block w-full border-gray-200
                                rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                                 <option selected disabled>Select Variant</option>
                                 <option value="Vrand">Brand</option>
@@ -194,10 +194,10 @@ const Form = () => {
                             <label htmlFor="carModelVariant">
                               Car Model Year
                             </label>
-                            <div class="relative mt-2 ">
+                            <div className="relative mt-2 ">
                               <select value={year}
                               required
-                                onChange={(e) => { setYear(e.currentTarget.value) }} class="py-3 px-4 pe-9 block w-full border-gray-200
+                                onChange={(e) => { setYear(e.currentTarget.value) }} className="py-3 px-4 pe-9 block w-full border-gray-200
                                rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                                 <option selected disabled>Select Year</option>
                                 <option value="Vrand">Brand</option>
@@ -210,12 +210,12 @@ const Form = () => {
 
                           <div>
                             <label htmlFor="carModelVariant">AT or MT</label>
-                            <div class="relative mt-2 ">
+                            <div className="relative mt-2 ">
                               <select id="hs-select-label"
                               required
                                 value={transmission}
                                 onChange={(e) => { setTransmission(e.currentTarget.value) }}
-                                class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                className="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                                 <option selected disabled>Select Transmission</option>
                                 <option>AT</option>
                                 <option>MT</option>
@@ -226,7 +226,7 @@ const Form = () => {
                         </div>
 
                         <div>
-                          <div class="relative mt-4">
+                          <div className="relative mt-4">
                             <label htmlFor="" for="mobileNumber">
                               Mobile Number
                             </label>
@@ -251,24 +251,24 @@ const Form = () => {
                             />
                           </div>
                         </div>
-                        <div class="mt-5 flex items-center">
-                          <div class="flex">
+                        <div className="mt-5 flex items-center">
+                          <div className="flex">
                             <input
                               id="remember-me"
                               name=""
                               required
                               type="checkbox"
-                              class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                              className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                             />
                           </div>
-                          <div class="ms-3">
+                          <div className="ms-3">
                             <label
                               for="remember-me"
-                              class="text-sm dark:text-white"
+                              className="text-sm dark:text-white"
                             >
                               I accept the{" "}
                               <span
-                                class="cursor-pointer text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
+                                className="cursor-pointer text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500"
                                 data-hs-overlay="#hs-scroll-inside-body-modal"
                               >
                                 Terms & Conditions
@@ -279,10 +279,10 @@ const Form = () => {
                           
                         </div>
                         <div className="recaptcha" id="recaptcha"></div>
-                        <div class="mt-5">
+                        <div className="mt-5">
                           <button
                             type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary_red text-white hover:bg-red-800 duration-300 disabled:opacity-50 disabled:pointer-events-none"
+                            className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary_red text-white hover:bg-red-800 duration-300 disabled:opacity-50 disabled:pointer-events-none"
                           >
                             Get a Quote
                           </button>

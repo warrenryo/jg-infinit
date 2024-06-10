@@ -1,4 +1,6 @@
-const Footer = () => {
+import React from "react";
+
+const Footer = React.memo(() => {
   return (
     <>
       <section id="contact">
@@ -18,12 +20,23 @@ const Footer = () => {
                   affordable cost.
                 </p>
                 <div className="wrapper flex gap-5 py-5">
-                  <img
-                    alt="Clock"
-                    loading="lazy"
-                    src="/images/images/footer-clock2.png"
-                    style={{ height: "34px", width: "34px" }}
-                  />
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                   style={{ height: "34px", width: "34px" }}
+                  >
+  <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+  <g id="SVGRepo_iconCarrier">
+    {" "}
+    <path
+      d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+      stroke="#DB6C27"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />{" "}
+  </g>
+</svg>
+
                   <ul className="footer-brand-list flex flex-col gap-5">
                     <li>
                       <p className="footer-brand-title text-white">
@@ -259,6 +272,6 @@ const Footer = () => {
       </section>
     </>
   );
-};
+});
 
 export default Footer;

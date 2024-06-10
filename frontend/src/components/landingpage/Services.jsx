@@ -15,7 +15,7 @@ const Services = () => {
       indicatorText: "",
     });
     const hammer = new Hammer(sliderRef.current);
-    const CaroSTimer = 10000;
+    const CaroSTimer = 5000;
     let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
 
     sliderRef.current.addEventListener("mouseenter", (e) => {
