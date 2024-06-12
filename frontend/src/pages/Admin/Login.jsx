@@ -3,7 +3,7 @@
     return(
         <>
         <div className="Login flex items-center justify-center h-lvh w-lvw bg-neutral-100">
-            <div className="container bg-white h-[70%] w-3/4 lg:w-2/4 flex border-[1px] border-gray-200 border-solid rounded-md shadow-sm">
+            <div className="container bg-white h-[70%] w-[80%] lg:w-2/4 flex border-[1px] border-gray-200 border-solid rounded-md shadow-sm">
                 <div className="section_1 w-1/2 px-2 hidden lg:block">
         <img src="/images/Website/half1.jpg" alt="Logo with description" 
         className="object-contain h-full w-full "/>
@@ -12,7 +12,7 @@
                 <div className=" bg-white border-l h-full  dark:bg-neutral-900 dark:border-neutral-700">
   <div className="p-4 sm:p-7 h-full">
     <div className="lg:hidden logo grid place-items-center">
-        <img src="/images/img/logo_red.png" alt="Logo" className="w-20 h-20" />
+        <img src="/images/img/logo_red.png" alt="Logo" className="w-28 h-28" />
     </div>
     <div className="text-center">
       <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">

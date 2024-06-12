@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useEffect } from "react";
+
+import { useEffect, useState } from "react";
+import {RingLoader} from 'react-spinners'
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom'
 import "./index.css";
@@ -44,6 +45,17 @@ function App() {
   }, []); 
   return (
     <>
+      {loading && 
+    <>
+    <div className="grid place-items-center w-lvw h-lvh absolute top-0">
+<RingLoader
+    className="!fixed z-[60] "
+  color="#800000"
+  size={"15em"}
+/>
+</div>
+<div className="loading fixed bg-neutral-600 w-lvw h-lvh top-0 z-[60] opacity-45"></div>
+    </>}
     <Routes>
       <Route path='/' element={<Homepage/>} />
       <Route path='/services' element={<Services/>} />
@@ -52,11 +64,11 @@ function App() {
       <Route path='/*' element={<Notfound/>} />  
 
       <Route element={<Adminlayout/>}>
-      <Route path='/admin' element={<AdminDashboard/>} />
+      <Route path='/admin' element={<AdminDashboard  setLoading={setLoading}/>} />
       <Route path='/admin/quote/:carParams' element={<Quotepage/>} />
-      <Route path="/admin/car/:brand" element={<Carlist loading={loading} setLoading={setLoading}/>}/>
+      <Route path="/admin/car/:brand" element={<Carlist  setLoading={setLoading}/>}/>
         </Route> 
-        <Route path="/admin/login" element={<Login loading={loading} setLoading={setLoading}/>}/>
+        <Route path="/admin/login" element={<Login  setLoading={setLoading}/>}/>
     </Routes>
     </>
   );

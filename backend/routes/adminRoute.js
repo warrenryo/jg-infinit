@@ -3,7 +3,7 @@ const adminRoute = express.Router()
 const db = require('../connection/connection')
 
 adminRoute.get('/numtables', async (req, res)=>{
-    const tables = await db(`SELECT TABLE_NAME, TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'jginfinit';`)
+    const tables = await db(`SELECT TABLE_NAME, TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'bncvmljswjf6puzcuhuf';`)
 res.json(tables)
 })
 

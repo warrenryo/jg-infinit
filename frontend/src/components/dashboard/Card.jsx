@@ -3,21 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Card = ({brand, length}) => {
-const hostServer = import.meta.env.VITE_HOSTSERVER
-const [car, setCar] = useState([])
-const getCarInfo = async ()=> {
-    try {
-        const res = await axios.get(`${hostServer}/${brand}`)
-        const data = res.data
-        setCar(data)
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-useEffect(()=>{
-    getCarInfo()
-}, [])
     return (
       <>
         {/* Card */}

@@ -157,12 +157,12 @@ const Carlist = ({setLoading, loading}) => {
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                 {data.filter((val, i) => {
-                  return val.v_year.toString().includes(search) || val.v_market_value.toString().includes(search)
-                    || val.v_variant.includes(search) || val.v_model.includes(search)
+                  return val.v_year?.toString()?.includes(search) || val.v_market_value?.toString()?.includes(search)
+                    || val.v_variant?.includes(search) || val.v_model?.includes(search)
                 }).map((val, i) => {
-                  return (<>
+                  return (
 
-                    <tr>
+                    <tr key={val.v_id}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
                         {val.v_id}
                       </td>
@@ -222,7 +222,7 @@ const Carlist = ({setLoading, loading}) => {
                         </div>
                       </td>
                     </tr>
-                  </>)
+                  )
                 })}
 
 
@@ -232,33 +232,46 @@ const Carlist = ({setLoading, loading}) => {
           <div className="py-1 px-4">
             <nav className="flex items-center justify-center space-x-1 lg:justify-end">
 
-              {numOfPages.map((val, i) => {
-
-                return (<>
-
-                  <button
-                  onClick={()=>{changePageNumber(currentPage !== 1? currentPage - 1: null)}}
-                  disabled={currentPage == 1? true: false}
-                    type="button"
-                    className={`p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${currentPage == val? "block": "hidden"}`}
-                  >
-                    <span aria-hidden="true">«</span>
-                    <span className="">Previous</span>
-                  </button>
-                  <button key={val}
-                    className={`min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${currentPage == val ? "block" : "hidden"}`}>{val}</button>
-
-                  <button
-                    disabled={currentPage !== numOfPages.length ? false : true}
-                    onClick={() => { changePageNumber(currentPage == val ? currentPage + 1 : null) }}
-                    type="button"
-                    className={`p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${currentPage == val ? "block" : "hidden"}`}
-                  >
-                    <span className="">Next</span>
-                    <span aria-hidden="true">»</span>
-                  </button>
-                </>)
-              })}
+            {numOfPages.map((val, i) => {
+  return (
+    <div key={i} className={currentPage == val?`flex`:`hidden`}>
+      <button
+        onClick={() => {
+          changePageNumber(currentPage !== 1 ? currentPage - 1 : null);
+        }}
+        disabled={currentPage === 1}
+        type="button"
+        className={`p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${
+          currentPage === val ? 'block' : 'hidden'
+        }`}
+      >
+        <span aria-hidden="true">«</span>
+        <span className="">Previous</span>
+      </button>
+      <button
+        key={i}
+        className={`min-w-[40px] flex justify-center items-center text-gray-800 hover:bg-gray-100 py-2.5 text-sm rounded-full disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${
+          currentPage === val ? 'block' : 'hidden'
+        }`}
+      >
+        {val}
+      </button>
+      <button
+        disabled={currentPage == numOfPages.length? true: false}
+        onClick={() => {
+          changePageNumber(currentPage === val ? currentPage + 1 : null);
+        }}
+        type="button"
+        className={`p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 ${
+          currentPage === val ? 'block' : 'hidden'
+        }`}
+      >
+        <span className="">Next</span>
+        <span aria-hidden="true">»</span>
+      </button>
+    </div>
+  );
+})}
 
 
             </nav>
