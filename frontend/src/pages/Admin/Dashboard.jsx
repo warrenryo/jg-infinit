@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Card from "../../components/dashboard/Card"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -9,6 +10,17 @@ import { Breadcrumbs } from "../../components/dashboard/Breadcrumbs"
     const hostServer = import.meta.env.VITE_HOSTSERVER
     const [search, setSearch] = useState("") 
     const [tables, setTables] = useState([])
+    const auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        // You can access the user's information here
+        console.log("User is signed in:", user);
+      } else {
+        // User is signed out
+        console.log("User is signed out");
+      }
+    });
     const getNumberTables = async () => {
         try {
           setLoading(true)

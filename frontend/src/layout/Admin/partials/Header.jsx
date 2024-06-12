@@ -1,8 +1,18 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { getAuth, signOut } from "firebase/auth"
 export const Header = React.memo(() => {
 
-    console.log("Herlllo")
+    const auth = getAuth()
+
+    const handleSignOut = async () => {
+        try {
+            const result = await signOut(auth)
+            location.replace('/admin/login')
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return(<>
     
     <div className="header w-full sticky top-0 border-b border-b-neutral-300 h-20 bg-white z-10" >
@@ -14,7 +24,9 @@ export const Header = React.memo(() => {
            
             </div>
             <div className="flex justify-end w-1/2 items-center mr-4 account">
-            <button className="bg-primary_red text-white py-1 px-3 rounded-md font-semibold uppercase text-xs">
+            <button 
+            onClick={handleSignOut}
+            className="bg-primary_red text-white py-1 px-3 rounded-md font-semibold uppercase text-xs">
             Logout
             </button>
                 
